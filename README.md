@@ -1,4 +1,4 @@
-# number-to-letterr
+# number-to-letter
 
 > yagoubigithub/convertir-nombre-chiffre typescript version for number to letter conversion in french
 
