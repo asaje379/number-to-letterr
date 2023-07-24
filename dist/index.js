@@ -14,5 +14,7 @@ var __exportStar = (this && this.__exportStar) || function(m, exports) {
     for (var p in m) if (p !== "default" && !Object.prototype.hasOwnProperty.call(exports, p)) __createBinding(exports, m, p);
 };
 Object.defineProperty(exports, "__esModule", { value: true });
+const lib_1 = require("./lib");
 __exportStar(require("./lib"), exports);
+console.log((0, lib_1.FloatToLetter)(12.125, 3));
 //# sourceMappingURL=index.js.map

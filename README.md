@@ -19,8 +19,9 @@ yarn add number-to-letter-ts
 ## Usage
 
 ```ts
-import { NumberToLetter } from 'number-to-letter-ts';
-console.log(NumberToLetter(12));
-
-// print 'douze'
+import { NumberToLetter, FloatToLetter } from 'number-to-letter-ts';
+console.log(NumberToLetter(12)); // print 'douze'
+console.log(FloatToLetter(12)); // print 'douze'
+console.log(FloatToLetter(12.1234)); // print 'douze virgule douze' : precision of 2 by default
+console.log(FloatToLetter(12.125, 3)); // print 'douze virgule cent vingt-cinq'
 ```
