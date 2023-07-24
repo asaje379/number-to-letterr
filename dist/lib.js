@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.NumberToLetter = exports.dizaine = exports.unite = void 0;
+exports.FloatToLetter = exports.NumberToLetter = exports.dizaine = exports.unite = void 0;
 function unite(nombre) {
     let unite = '';
     switch (nombre) {
@@ -100,8 +100,7 @@ function dizaine(nombre) {
 } //-----------------------------------------------------------------------
 exports.dizaine = dizaine;
 function NumberToLetter(nombre) {
-    let i, j, n, quotient, reste, nb;
-    let ch;
+    let n, quotient, reste, nb;
     let numberToLetter = '';
     //__________________________________
     if (nombre.toString().replace(/ /gi, '').length > 15)
@@ -305,9 +304,25 @@ function NumberToLetter(nombre) {
             break;
     } //fin switch
     /*respect de l'accord de quatre-vingt*/
-    if (numberToLetter.substr(numberToLetter.length - 'quatre-vingt'.length, 'quatre-vingt'.length) == 'quatre-vingt')
+    if (numberToLetter.substring(numberToLetter.length - 'quatre-vingt'.length, 'quatre-vingt'.length) == 'quatre-vingt')
         numberToLetter = numberToLetter + 's';
     return numberToLetter;
 }
 exports.NumberToLetter = NumberToLetter;
+function FloatToLetter(nombre, precision = 2) {
+    try {
+        if (+nombre.toFixed(0) === nombre) {
+            return NumberToLetter(nombre);
+        }
+        return nombre
+            .toFixed(precision)
+            .split('.')
+            .map((value) => NumberToLetter(+value))
+            .join(' virgule ');
+    }
+    catch (error) {
+        return 'Nombre non valide';
+    }
+}
+exports.FloatToLetter = FloatToLetter;
 //# sourceMappingURL=lib.js.map

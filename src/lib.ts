@@ -97,8 +97,7 @@ export function dizaine(nombre: number): string {
 } //-----------------------------------------------------------------------
 
 export function NumberToLetter(nombre: number) {
-  let i, j, n, quotient, reste, nb;
-  let ch;
+  let n, quotient, reste, nb;
   let numberToLetter: string = '';
   //__________________________________
 
@@ -288,12 +287,28 @@ export function NumberToLetter(nombre: number) {
   } //fin switch
   /*respect de l'accord de quatre-vingt*/
   if (
-    numberToLetter.substr(
+    numberToLetter.substring(
       numberToLetter.length - 'quatre-vingt'.length,
-      'quatre-vingt'.length
+      'quatre-vingt'.length,
     ) == 'quatre-vingt'
   )
     numberToLetter = numberToLetter + 's';
 
   return numberToLetter;
+}
+
+export function FloatToLetter(nombre: number, precision = 2) {
+  try {
+    if (+nombre.toFixed(0) === nombre) {
+      return NumberToLetter(nombre);
+    }
+
+    return nombre
+      .toFixed(precision)
+      .split('.')
+      .map((value) => NumberToLetter(+value))
+      .join(' virgule ');
+  } catch (error) {
+    return 'Nombre non valide';
+  }
 }
