@@ -94,7 +94,7 @@ export function dizaine(nombre: number): string {
       break;
   } //fin switch
   return dizaine;
-} //-----------------------------------------------------------------------
+}
 
 export function NumberToLetter(nombre: number) {
   let n, quotient, reste, nb;
